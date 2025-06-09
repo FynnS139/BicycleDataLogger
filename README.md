@@ -40,20 +40,15 @@
 - MPU6050 (for high-frequency vibration)
 - DS3231 RTC module
 - Hall-effect speed sensor
-- SD card module (FAT32 recommended)
+- SD card module
 - LED (RGB)
 - 2× Push buttons (start/stop and flag/reset)
+- DuPont pin connectors
+- Wires
 - USB power bank
 - Bicycle-mountable main + secondary housings
 
-## Supported Sensors
 
-Auto-detected:
-- BNO055 (2 units)
-- MPU6050
-- DS3231 RTC
-- SD card module
-- Hall sensor (SPI-based)
 
 ## Expandability
 
@@ -88,36 +83,39 @@ The current structure supports automatic sensor detection for a core set of devi
 
 ## Getting Started
 
-### 1. Flash Firmware
+### 1. 3D-print Housing and cut out backbone
 
-Upload `src/main.ino` to your Arduino Nano ESP32 using Arduino IDE or PlatformIO.
+- **Downloadable SolidWorks Files** for the 3D-printable and electrical backbone for the main and the secondary housing & the concept housing for baby vibrations. 
+The 3D-prints can be made with any filament and the backbone is designed for a 4mm thick 4mm acrylglas which can be lasercut.
+  ➤ [Download Housing Files (.zip)](./SolidWorks_Housing.zip)
 
-### 2. Connect Hardware
 
-Wire up supported sensors (see `src/main.ino` for pin definitions). Sensor detection happens at startup.
+### 2. Connect hardware
 
-### 3. Calibrate & Deploy
+Wire up supported sensors on a breadboard, prototyping board or PCB following the wiring scheme:
+![Wiring scheme](/images/Wiring.png)
+
+We made use of DuPont connections to make the sensor connection easily interchangable. Sensors can be run to I²C or SPI connectors. I²C adresses can be changed by connecting the AD0 wire (HIGH) or leaving it unconnected (LOW). The connectors can be seen below.
+![Solder board with plug and play connections](/images/Board.png)
+
+
+### 3. Flash Firmware
+
+Upload `src/main.ino` to your Arduino Nano ESP32 using Arduino IDE
+
+
+### 4. Calibrate & Deploy
 
 - Power the logger via USB power bank
 - Wait for the blue LED (calibration mode)
-- Calibrate (move to reference position)
+- Calibrate the logger (and reset steering angle)
 - Start logging using the button
+- Flag significant events
 - Retrieve the SD card after deployment
 
-
-## 3D-Printable Housing + User Guide
-
-This repository includes:
-
-- **Downloadable SolidWorks Files** for the 3D-printable main and secondary housings & the concept housing for baby vibrations  
-  ➤ [Download Housing Files (.zip)](./SolidWorks_Housing.zip)
-
-- **Visual User Guide for LEDs & Buttons**  
-  ![Quick guide](./images/DataLoggerQuickGuide.jpg)
-  
-  ➤ [Download quick guide (.jpg)](./images//DataLoggerQuickGuide.jpg)
-
-  
+A Quick Guide for the LED indicator and two buttons can be printed on the main housing
+![Quick Guide](/images/QuickGuide.jpg)
+  ➤ [Download Quick Guide (.jpg)](/images/QuickGuide.jpg)
 
 
 ## Data Visualization Tool (Interactive)
@@ -143,7 +141,7 @@ You can build multiple units and send them to test users. Data can be collected 
 
 ## Customization
 
-- Add more sensors by modifying `setupSensors()` and logging logic
+- Add more sensors by modifying `src/main.ino` and logging logic
 - Create new modes or detection rules based on sensors present
 - Expand CSV logging format as needed
 
