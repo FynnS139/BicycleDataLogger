@@ -2,21 +2,20 @@
 
 **BicycleDataLogger** is an open-source, plug-and-play Arduino-based system for gathering movement and orientation data on bicycles and other mobile platforms. Designed for scalability and field deployment, it automatically detects connected sensors and starts logging data with minimal setup.
 
-This project is ideal for researchers, engineers, or citizen science initiatives aiming to collect real-world data from users with minimal technical intervention.
 
-## 🎯 Use Cases
+## Use Cases
 
 - Bicycle dynamics studies
 - Vibration and terrain response logging
 - Real-world behavioral tracking (e.g., Baby Vibrations Project)
 - Portable multi-sensor logging in other mobile scenarios
 
-## 🔧 Features
+## Features
 
 - Plug-and-play with auto-detected sensors
 - Supports two operation modes:
   - **Standard Mode** (BNO055, RTC, Hall sensor)
-  - **High-Vibration Mode** (MPU9250/6050 only)
+  - **High-Vibration Mode** (MPU6050 only)
 - Two-button interface for control and calibration
 - LED feedback system:
   - Blue = waiting for calibration
@@ -33,7 +32,7 @@ This project is ideal for researchers, engineers, or citizen science initiatives
   - Optional: Temperature or other sensor data
 - Main and secondary housings connected via cable for modularity
 
-## ⚙️ Hardware
+## Hardware
 
 - Arduino Nano ESP32
 - BNO055 IMUs ×2 (for orientation and steering)
@@ -46,7 +45,7 @@ This project is ideal for researchers, engineers, or citizen science initiatives
 - USB power bank
 - Bicycle-mountable main + secondary housings
 
-## 🧰 Supported Sensors
+## Supported Sensors
 
 Auto-detected:
 - BNO055 (2 units)
@@ -55,7 +54,7 @@ Auto-detected:
 - SD card module
 - Hall sensor (SPI-based)
 
-## 🧩 Expandability
+## Expandability
 
 We encourage contributors to expand the BicycleDataLogger! You can:
 
@@ -65,28 +64,28 @@ We encourage contributors to expand the BicycleDataLogger! You can:
 
 The current structure supports automatic sensor detection for a core set of devices, and it's straightforward to modify the logic for additional use cases.
 
-## 🚦 Modes
+## Modes
 
 | Mode               | Trigger                              | Behavior |
 |--------------------|--------------------------------------|----------|
 | **Standard Mode**   | BNO055s connected                    | 100 Hz logging of orientation, speed, steering |
 | **Vibration Mode**  | Only MPU connected, no BNO055        | 400 Hz logging of acceleration + 100 Hz other data |
 
-## 🎮 User Interface
+## User Interface
 
 | Button             | Action                                             |
 |--------------------|----------------------------------------------------|
 | Main (on housing)  | Toggle start/stop logging                         |
 | Secondary (on fork)| Press = flag event<br>Hold 5s = recalibrate yaw   |
 
-## 📂 Data Logging
+## Data Logging
 
 - Data is saved to `/data.csv` on the SD card
 - One large file per deployment (appends between sessions)
 - Timestamped rows with data fields based on connected sensors
 - Compatible with Excel, Python, R, and analysis pipelines
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Flash Firmware
 
@@ -104,22 +103,34 @@ Wire up supported sensors (see `src/main.ino` for pin definitions). Sensor detec
 - Start logging using the button
 - Retrieve the SD card after deployment
 
-## 👩‍🔬 For Researchers
+
+## 3D-Printable Housing + User Guide
+
+This repository includes:
+
+- **Downloadable SolidWorks Files** for the 3D-printable main and secondary housings & the concept housing for baby vibrations  
+  ➤ [Download Housing Files (.zip)](./SolidWorks_Housing.zip)
+
+- **Visual User Guide for LEDs & Buttons**  
+  ➤ [View Main Housing Guide (PDF)](./DataLoggerQuickGuide.jpeg)
+
+
+## For Researchers
 
 You can build multiple units and send them to test users. Data can be collected offline via SD cards and analyzed centrally. No live monitoring is needed once deployed.
 
-## 🛠️ Customization
+## Customization
 
 - Add more sensors by modifying `setupSensors()` and logging logic
 - Create new modes or detection rules based on sensors present
 - Expand CSV logging format as needed
 
-## 📄 Licenses
+## Licenses
 
 This project is licensed under the MIT License. See [LICENSE](./LICENSE) for details.  
 Third-party libraries used are listed in [THIRD_PARTY_LICENSES.md](./THIRD_PARTY_LICENSES.md).
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Thanks to the Arduino, Adafruit, and open-source communities. Special thanks to the Baby Vibrations Project for helping shape the modular sensor concept.
 
