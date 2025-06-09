@@ -4,7 +4,7 @@
 
 ![Main housing of the data logger](./images/DataLoggerHousing.jpg)
 
-## Use Cases
+## Use cases
 
 - Bicycle dynamics studies
 - Vibration and terrain response logging
@@ -67,7 +67,7 @@ The current structure supports automatic sensor detection for a core set of devi
 | **Standard Mode**   | BNO055s connected                    | 100 Hz logging of orientation, speed, steering |
 | **Vibration Mode**  | Only MPU connected, no BNO055        | 400 Hz logging of acceleration + 100 Hz other data |
 
-## User Interface
+## User interface
 
 | Button             | Action                                             |
 |--------------------|----------------------------------------------------|
@@ -95,8 +95,8 @@ The 3D-prints can be made with any filament and the backbone is designed for a 4
 Wire up supported sensors on a breadboard, prototyping board or PCB following the wiring scheme:
 ![Wiring scheme](/images/Wiring.png)
 
-We made use of DuPont connections to make the sensor connection easily interchangable. Sensors can be run to I²C or SPI connectors. I²C adresses can be changed by connecting the AD0 wire (HIGH) or leaving it unconnected (LOW). The connectors can be seen below.
-![Solder board with plug and play connections](/images/Board.png)
+We made use of DuPont connections to make the sensor connection easily interchangable. Sensors can be run to I²C or SPI connectors. I²C adresses can be changed by connecting the AD0 wire (HIGH) or leaving it unconnected (LOW) (Green wiring in image). The connectors can be seen below.
+![Solder board with plug-and-play connections](/images/Board.png)
 
 
 ### 3. Flash Firmware
@@ -104,7 +104,7 @@ We made use of DuPont connections to make the sensor connection easily interchan
 Upload `src/main.ino` to your Arduino Nano ESP32 using Arduino IDE
 
 
-### 4. Calibrate & Deploy
+### 4. Calibrate & deploy
 
 - Power the logger via USB power bank
 - Wait for the blue LED (calibration mode)
@@ -113,29 +113,33 @@ Upload `src/main.ino` to your Arduino Nano ESP32 using Arduino IDE
 - Flag significant events
 - Retrieve the SD card after deployment
 
-A Quick Guide for the LED indicator and two buttons can be printed on the main housing
+**A Quick Guide for the LED indicator and two buttons can be printed on the main housing**
+
+
 ![Quick Guide](/images/QuickGuide.jpg)
   ➤ [Download Quick Guide (.jpg)](/images/QuickGuide.jpg)
 
 
-## Data Visualization Tool (Interactive)
+## Data visualization tool (Interactive)
 
 You can visualize logged data interactively using the included Dash application built with Plotly.
 
 ![Example of visualization](./images/VisualizationTool.jpg)
 
-### How to Use
+### How to use
 
 1. Make sure you have Python installed (version 3.7+).
 2. Install dependencies:
    ```bash
    pip install pandas numpy dash dash-bootstrap-components plotly
-3. Place your data CSV (e.g., `Regular.csv`) in the same directory as `DataVisualization.py`
+3. Place your data CSV (e.g., `Regular.csv`) in the same directory as `DataVisualization.py` and rename it: `Data.csv`
 3. Run `DataVisualization.py`
 4. Open the application in your browser at http://127.0.0.1:8050/
 
+(An example data file where yaw pitch and roll were tested is included in the files: `Data.csv`. You can test the visualization tool with it and replace it with your own data when needed)
 
-## For Researchers
+
+## For researchers
 
 You can build multiple units and send them to test users. Data can be collected offline via SD cards and analyzed centrally. No live monitoring is needed once deployed.
 
@@ -153,4 +157,3 @@ Third-party libraries used are listed in [THIRD_PARTY_LICENSES.md](./THIRD_PARTY
 ## Acknowledgments
 
 Thanks to the Arduino, Adafruit, and open-source communities. Special thanks to the Baby Vibrations Project for helping shape the modular sensor concept.
-

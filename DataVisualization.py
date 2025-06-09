@@ -7,7 +7,7 @@ import plotly.graph_objs as go
 
 # Load data from CSV file
 # Ensure the file is in the same directory or provide the full path
-filepath = "Regular.csv"
+filepath = "Data.csv"
 raw_df = pd.read_csv(filepath, header=None, names=["Raw"], dtype=str, delimiter="\t", engine="python")
 raw_df = raw_df[raw_df["Raw"].notnull() & raw_df["Raw"].str.contains(",")] # 
 
