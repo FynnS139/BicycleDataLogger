@@ -80,7 +80,7 @@ The current structure supports automatic sensor detection for a core set of devi
 
 ## Data Logging
 
-- Data is saved to `/data.csv` on the SD card
+- Data is saved to `/Regular.csv` or `/Vibrations.csv` on the SD card depending on mode
 - One large file per deployment (appends between sessions)
 - Timestamped rows with data fields based on connected sensors
 - Compatible with Excel, Python, R, and analysis pipelines
@@ -112,7 +112,7 @@ This repository includes:
   ➤ [Download Housing Files (.zip)](./SolidWorks_Housing.zip)
 
 - **Visual User Guide for LEDs & Buttons**  
-  ➤ [View Main Housing Guide (PDF)](./DataLoggerQuickGuide.jpeg)
+  ➤ [View Main Housing Guide (PDF)](./DataLoggerQuickGuide.jpg)
 
 
 ## For Researchers
