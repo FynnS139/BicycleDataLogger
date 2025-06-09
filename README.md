@@ -2,6 +2,7 @@
 
 **BicycleDataLogger** is an open-source, plug-and-play Arduino-based system for gathering movement and orientation data on bicycles and other mobile platforms. Designed for scalability and field deployment, it automatically detects connected sensors and starts logging data with minimal setup.
 
+![Main housing of the data logger](./images/DataLoggerHousing.jpg)
 
 ## Use Cases
 
@@ -36,7 +37,7 @@
 
 - Arduino Nano ESP32
 - BNO055 IMUs ×2 (for orientation and steering)
-- MPU9250/6050 (for high-frequency vibration)
+- MPU6050 (for high-frequency vibration)
 - DS3231 RTC module
 - Hall-effect speed sensor
 - SD card module (FAT32 recommended)
@@ -49,7 +50,7 @@
 
 Auto-detected:
 - BNO055 (2 units)
-- MPU6050 or MPU9250
+- MPU6050
 - DS3231 RTC
 - SD card module
 - Hall sensor (SPI-based)
@@ -112,7 +113,25 @@ This repository includes:
   ➤ [Download Housing Files (.zip)](./SolidWorks_Housing.zip)
 
 - **Visual User Guide for LEDs & Buttons**  
-  ➤ [View Main Housing Guide (PDF)](./DataLoggerQuickGuide.jpg)
+  ![Quick guide](./images/DataLoggerQuickGuide.jpg)
+  ➤ [Download quick guide (.jpg)](./images//DataLoggerQuickGuide.jpg)
+
+  
+
+
+## Data Visualization Tool (Interactive)
+
+You can visualize logged data interactively using the included Dash application built with Plotly.
+
+### How to Use
+
+1. Make sure you have Python installed (version 3.7+).
+2. Install dependencies:
+   ```bash
+   pip install pandas numpy dash dash-bootstrap-components plotly
+3. Place your data CSV (e.g., `Regular.csv`) in the same directory as `DataVisualization.py`
+3. Run `DataVisualization.py`
+4. Open the application in your browser at http://127.0.0.1:8050/
 
 
 ## For Researchers
