@@ -114,6 +114,7 @@ This repository includes:
 
 - **Visual User Guide for LEDs & Buttons**  
   ![Quick guide](./images/DataLoggerQuickGuide.jpg)
+  
   ➤ [Download quick guide (.jpg)](./images//DataLoggerQuickGuide.jpg)
 
   
@@ -122,6 +123,8 @@ This repository includes:
 ## Data Visualization Tool (Interactive)
 
 You can visualize logged data interactively using the included Dash application built with Plotly.
+
+![Example of visualization](./images/VisualizationTool.jpg)
 
 ### How to Use
 
